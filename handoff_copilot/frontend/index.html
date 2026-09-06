@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ER Shift-Handoff Copilot</title>
+<link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+<header>
+  <h1>ER Shift-Handoff Copilot</h1>
+  <p>Demo UI — enter a patient ID, log a note as the outgoing doctor, then open the handoff as the incoming doctor.</p>
+</header>
+<main>
+  <div>
+    <div class="panel">
+      <h2>Patient</h2>
+      <label for="patient-id">Patient ID</label>
+      <input id="patient-id" placeholder="e.g. bed-12" value="demo-patient" />
+    </div>
+
+    <div class="panel">
+      <h2>Log a note (outgoing doctor)</h2>
+      <form id="note-form">
+        <label for="note-author">Author</label>
+        <input id="note-author" placeholder="dr_smith" value="dr_smith" required />
+        <label for="note-type">Type</label>
+        <select id="note-type">
+          <option value="progress">progress</option>
+          <option value="nursing">nursing</option>
+          <option value="vitals">vitals</option>
+          <option value="labs">labs</option>
+          <option value="family">family</option>
+          <option value="other">other</option>
+        </select>
+        <label for="note-text">Note</label>
+        <textarea id="note-text" placeholder="68M, chest pain resolved, gave nitro, trending troponin, BP 190/125, HR 140" required></textarea>
+        <button type="submit">Save note</button>
+      </form>
+      <p class="muted" id="note-status"></p>
+    </div>
+
+    <div class="panel">
+      <h2>Ask a follow-up</h2>
+      <form id="ask-form">
+        <label for="ask-question">Question</label>
+        <input id="ask-question" placeholder="any allergy concerns?" required />
+        <button type="submit">Ask</button>
+      </form>
+      <div id="ask-answer" class="muted"></div>
+    </div>
+  </div>
+
+  <div>
+    <div class="panel">
+      <h2>Handoff (incoming doctor)</h2>
+      <button id="handoff-btn">Open handoff</button>
+      <div class="event-log" id="event-log"></div>
+    </div>
+
+    <div class="panel" id="sbar-panel-wrap">
+      <h2>SBAR Summary</h2>
+      <div id="sbar-panel" class="muted">Open a handoff to see the summary.</div>
+    </div>
+
+    <div class="panel">
+      <h2>Red Flags</h2>
+      <div id="flags-panel" class="muted">Open a handoff to see flags.</div>
+    </div>
+  </div>
+</main>
+<script src="/app.js"></script>
+</body>
+</html>

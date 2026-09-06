@@ -1,6 +1,14 @@
 # Agentic Coding Setup
 
-This package contains a domain-agnostic coding-agent setup
+This package contains a domain-agnostic coding-agent setup.
+
+## Projects
+
+- [`handoff_copilot/`](handoff_copilot/README.md) — ER Shift-Handoff Copilot,
+  a multi-agent system (FastAPI, LangGraph, Pinecone RAG, a real A2A service,
+  OpenTelemetry, guardrails, evals). See
+  [`handoff_copilot/docs/DESIGN.md`](handoff_copilot/docs/DESIGN.md) for the
+  problem statement, architecture, and design decisions.
 
 ## Files
 

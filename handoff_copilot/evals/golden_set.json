@@ -1,0 +1,91 @@
+[
+  {
+    "id": "case-01-stable-no-flags",
+    "notes": [
+      {"author": "dr_a", "note_type": "progress", "text": "45F, mild ankle sprain after twisting on stairs. BP 118/76, HR 78, SpO2 98%. Ankle x-ray negative for fracture. Discharged with RICE instructions."}
+    ],
+    "expected_flag_types": []
+  },
+  {
+    "id": "case-02-hypertensive-crisis",
+    "notes": [
+      {"author": "dr_a", "note_type": "vitals", "text": "72M with severe headache. BP 195/128, HR 92. Started on IV labetalol per protocol."}
+    ],
+    "expected_flag_types": ["vital_sign"]
+  },
+  {
+    "id": "case-03-tachycardia-hypoxia",
+    "notes": [
+      {"author": "dr_a", "note_type": "vitals", "text": "58M with shortness of breath. HR 148, SpO2 86% on room air. Placed on 4L nasal cannula, repeat SpO2 pending."}
+    ],
+    "expected_flag_types": ["vital_sign"]
+  },
+  {
+    "id": "case-04-nitrate-pde5-interaction",
+    "notes": [
+      {"author": "dr_a", "note_type": "progress", "text": "60M chest pain, gave nitro 0.4mg sublingual."},
+      {"author": "dr_a", "note_type": "family", "text": "Patient's wife mentions he takes sildenafil for an unrelated condition, took it this morning."}
+    ],
+    "expected_flag_types": ["drug_interaction"]
+  },
+  {
+    "id": "case-05-warfarin-nsaid-interaction",
+    "notes": [
+      {"author": "dr_a", "note_type": "progress", "text": "70F on chronic warfarin for atrial fibrillation, came in for back pain."},
+      {"author": "dr_a", "note_type": "progress", "text": "Gave ibuprofen 400mg for pain relief."}
+    ],
+    "expected_flag_types": ["drug_interaction"]
+  },
+  {
+    "id": "case-06-opioid-benzo-interaction",
+    "notes": [
+      {"author": "dr_a", "note_type": "progress", "text": "35M with acute back spasm, gave morphine 4mg IV for pain."},
+      {"author": "dr_a", "note_type": "nursing", "text": "Patient anxious, gave lorazepam 1mg per orders."}
+    ],
+    "expected_flag_types": ["drug_interaction"]
+  },
+  {
+    "id": "case-07-allergy-conflict",
+    "notes": [
+      {"author": "dr_a", "note_type": "progress", "text": "50F with suspected cellulitis. Patient allergic to penicillin per chart."},
+      {"author": "dr_b", "note_type": "progress", "text": "Started penicillin for cellulitis coverage."}
+    ],
+    "expected_flag_types": ["allergy_conflict"]
+  },
+  {
+    "id": "case-08-allergy-nkda-no-flag",
+    "notes": [
+      {"author": "dr_a", "note_type": "progress", "text": "NKDA. Started penicillin for suspected strep throat."}
+    ],
+    "expected_flag_types": []
+  },
+  {
+    "id": "case-09-pending-troponin",
+    "notes": [
+      {"author": "dr_a", "note_type": "labs", "text": "68M chest pain resolved after nitro. Trending troponin, first draw slightly elevated, repeat in 3 hours."}
+    ],
+    "expected_flag_types": ["pending_critical_result"]
+  },
+  {
+    "id": "case-10-multiple-combined-flags",
+    "notes": [
+      {"author": "dr_a", "note_type": "progress", "text": "68M chest pain, gave nitro. BP 190/125, HR 142. Allergic to penicillin."},
+      {"author": "dr_b", "note_type": "labs", "text": "Trending troponin, elevated on first draw. Also started penicillin for suspected pneumonia."}
+    ],
+    "expected_flag_types": ["vital_sign", "allergy_conflict", "pending_critical_result"]
+  },
+  {
+    "id": "case-11-minimal-single-word-note",
+    "notes": [
+      {"author": "dr_a", "note_type": "other", "text": "Stable."}
+    ],
+    "expected_flag_types": []
+  },
+  {
+    "id": "case-12-family-update-only",
+    "notes": [
+      {"author": "dr_a", "note_type": "family", "text": "Family updated on patient's condition, no new clinical information, patient resting comfortably."}
+    ],
+    "expected_flag_types": []
+  }
+]
